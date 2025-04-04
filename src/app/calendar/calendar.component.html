@@ -14,7 +14,8 @@
   <div class="footer">
     <div class="selected-date">
       <mat-icon>calendar_today</mat-icon>
-      <h5 class="date_text">{{ selectedDateControl.value ? (selectedDateControl.value | date: 'd MMM y') : 'No Date' }}</h5>
+      <h5 class="date_text">{{ selectedDateControl.value ? (selectedDateControl.value | date: 'd MMM y') : 'No Date' }}
+      </h5>
     </div>
     <div class="buttons">
       <button mat-button (click)="cancel()">Cancel</button>

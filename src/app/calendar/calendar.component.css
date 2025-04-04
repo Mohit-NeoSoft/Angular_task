@@ -38,7 +38,7 @@
   padding: 10px;
   background: white;
   border-top: 1px solid #e0e0e0;
-  margin-top: auto; /* Pushes footer to bottom */
+  margin-top: auto;
 }
 
 .selected-date {
@@ -54,7 +54,7 @@
   margin-right: 5px;
 }
 
-.date_text{
+.date_text {
   font-size: 12px;
   font-weight: bold;
   margin-top: 10px;
@@ -73,19 +73,16 @@
   border: none;
 }
 
-/* Cancel Button */
 .buttons button:first-child {
   background-color: #edf8ff;
   color: rgb(83, 171, 248);
 }
 
-/* Save Button */
 .buttons button:last-child {
   background-color: rgb(83, 171, 248);
   color: white;
 }
 
-/* Mobile Optimization */
 @media (max-width: 600px) {
   .footer {
     flex-direction: row;
