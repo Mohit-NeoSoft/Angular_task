@@ -1,0 +1,117 @@
+<main>
+    <section class="employee_details">
+        <div class="container-fluid p-0">
+            <div style="background-color: rgb(83, 171, 248);">
+                <div class="container">
+                    <div class="employee_heading">
+                        <h2 class="text-capitalize py-2 text-white" *ngIf="!updatebtn"
+                            style="font-size: 16px; font-family: ui-monospace;">
+                            Add Employee Details
+                        </h2>
+                        <h2 class="text-capitalize py-2 text-white" *ngIf="updatebtn"
+                            style="font-size: 16px; font-family: ui-monospace;">
+                            Edit Employee Details
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <form class="employee_form_input" [formGroup]="addEmpForm">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="name_field position-relative">
+                                <img src="assets/images/person.png" alt="" class="position-absolute employee_icon">
+                                <input type="text" placeholder="Employee name" formControlName="empName"
+                                    [ngClass]="{ 'is-invalid': submitted && f['empName'].errors }" />
+                                <div *ngIf="submitted && f['empName'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['empName'].errors['required']">*Employee Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="select_field position-relative">
+                                <img src="assets/images/role.png" alt=""
+                                    class="position-absolute employee_icon employee_icon_select">
+                                <select formControlName="empRole" #role
+                                    [ngClass]="{ 'is-invalid': submitted && f['empRole'].errors }"
+                                    (change)="onSelected()">
+                                    <option value="" disabled selected hidden>Select role</option>
+                                    <option value="Product Designer">Product Designer</option>
+                                    <option value="Flutter Developer">Flutter Developer</option>
+                                    <option value="QA Tester">QA Tester</option>
+                                    <option value="Product Owner">Product Owner</option>
+                                </select>
+                                <div *ngIf="submitted && f['empRole'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['empRole'].errors['required']">*Employee Role is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4 display_mobile_none">
+                        <div class="col-lg-5 col-md-5 col-5">
+                            <div class="name_field position-relative">
+                                <mat-icon class="position-absolute employee_icon"
+                                    (click)="openCalendar('empstartDate')">calendar_today</mat-icon>
+                                <input type="text" placeholder="Today" formControlName="empstartDate" readonly
+                                    (click)="openCalendar('empstartDate')"
+                                    [value]="formatDate(addEmpForm.get('empstartDate')?.value)"
+                                    style="outline: none;" />
+
+                                <div class="calendar-popup" *ngIf="isCalendarOpen && selectedField === 'empstartDate'">
+                                    <app-calendar [selectedDate]="addEmpForm.get('empstartDate')?.value"
+                                        (dateSelected)="setSelectedDate($event, 'empstartDate')"
+                                        fieldType="empstartDate" (closePopup)="closeCalendar()">
+                                    </app-calendar>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-2 col-md-2 col-2 text-center d-flex justify-content-center align-items-center">
+                            <i class="fa fa-arrow-right" aria-hidden="true" style="color: rgb(83, 171, 248);"></i>
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 col-5">
+                            <div class="name_field position-relative">
+                                <mat-icon class="position-absolute employee_icon"
+                                    (click)="openCalendar('empendDate')">calendar_today</mat-icon>
+
+                                <input type="text" placeholder="No Date" readonly formControlName="empendDate"
+                                    (click)="openCalendar('empendDate')"
+                                    [value]="formatDate(addEmpForm.get('empendDate')?.value || null)">
+
+                                <div class="calendar-popup" *ngIf="isCalendarOpen && selectedField === 'empendDate'">
+                                    <app-calendar [selectedDate]="addEmpForm.get('empendDate')?.value"
+                                        [minDate]="empstartDate" fieldType="empendDate"
+                                        (dateSelected)="setSelectedDate($event, 'empendDate')"
+                                        (closePopup)="closeCalendar()">
+                                    </app-calendar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Buttons -->
+    <div class="add-emp-footer">
+        <hr class="hr-line">
+        <div class="bottom_height add-emp-buttons">
+            <div class="container">
+                <div class="d-flex gap-2 justify-content-end">
+                    <div class="cncbtn"><a><button class="text1" (click)="onCancel()">Cancel</button></a></div>
+                    <div class="savebtn"><a><button class="text2" type="submit" *ngIf="!updatebtn"
+                                (click)="addEmployee()">Save</button></a></div>
+                    <div class="savebtn"><a><button class="text2" *ngIf="updatebtn"
+                                (click)="updateEmployee()">Update</button></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

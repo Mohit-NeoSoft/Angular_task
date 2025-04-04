@@ -1,0 +1,59 @@
+<div>
+    <div class="text-blue ">
+        <div class="container">
+            <h5>Employee List</h5>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="curent_head">Current Employee</h2>
+    </div>
+    <div class="container">
+        <div class="main-card">
+            <div *ngFor="let employee of currentemp" class="card">
+                <div class="icons">
+                    <div>
+                        <h2>{{employee.empName}}</h2>
+                    </div>
+                    <div>
+                        <i class="fa fa-edit" style="font-size:35px; color: yellowgreen;"
+                            (click)="updateEmployee(employee)" title="Edit"></i>
+                        <i class="fa fa-trash-o" style="font-size:35px;margin-left: 10px; color: red;"
+                            (click)="deleteEmployee(employee.id)" title="Delete"></i>
+                    </div>
+                </div>
+                <p style="color:#b5b6b7 ;"> {{employee.empRole
+                    }}</p>
+                <p style="color:#b5b6b7 ;"> From {{employee.empstartDate | date}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="curent_head">Previous Employees</h2>
+    </div>
+    <div class="container">
+        <div class="main-card">
+            <div *ngFor="let employee of previousemp" class="card">
+                <div class="icons">
+                    <div>
+                        <h2>{{employee.empName}}</h2>
+                    </div>
+                    <div>
+                        <i class="fa fa-edit" style="font-size:35px; color: yellowgreen;"
+                            (click)="updateEmployee(employee)" title="Edit"></i>
+                        <i class="fa fa-trash-o" style="font-size:35px;margin-left: 10px; color: red;"
+                            (click)="deleteEmployee(employee.id)" title="Delete"></i>
+                    </div>
+                </div>
+                <p style="color:#b5b6b7 ;"> {{employee.empRole
+                    }}</p>
+                <p style="color:#b5b6b7 ;"> From {{employee.empstartDate | date}} - {{employee.empendDate | date}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="img_div" *ngIf="employees.length==0||null">
+        <img src="assets/images/Empty.png" alt="">
+    </div>
+    <div class="btn">
+        <button class="button button2" (click)="add()" title="Add"> + </button>
+    </div>
+</div>

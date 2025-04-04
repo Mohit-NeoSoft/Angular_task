@@ -1,0 +1,103 @@
+.calendar-container {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.preset-buttons button {
+  flex: 1 1 calc(50% - 4px);
+  margin: 2px;
+  background: #f0f7ff;
+  color: #2986f1;
+  min-width: 100px;
+}
+
+.mat-calendar {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  margin-top: auto; /* Pushes footer to bottom */
+}
+
+.selected-date {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.selected-date mat-icon {
+  color: #1da1f2;
+  margin-right: 5px;
+}
+
+.date_text{
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+/* Cancel Button */
+.buttons button:first-child {
+  background-color: #edf8ff;
+  color: rgb(83, 171, 248);
+}
+
+/* Save Button */
+.buttons button:last-child {
+  background-color: rgb(83, 171, 248);
+  color: white;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .preset-buttons button {
+    flex: 1 1 calc(50% - 4px);
+    margin: 2px;
+  }
+
+  .buttons {
+    gap: 5px;
+  }
+}

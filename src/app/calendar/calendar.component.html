@@ -1,0 +1,24 @@
+<div class="calendar-container">
+  <div class="preset-buttons">
+    <button *ngIf="fieldType === 'empendDate'" mat-button (click)="setDate(null)">No Date</button>
+    <button mat-button (click)="setDate(0)">Today</button>
+    <button *ngIf="fieldType === 'empstartDate'" mat-button (click)="setDate(getNextWeekday(1))">Next Monday</button>
+    <button *ngIf="fieldType === 'empstartDate'" mat-button (click)="setDate(getNextWeekday(2))">Next Tuesday</button>
+    <button *ngIf="fieldType === 'empstartDate'" mat-button (click)="setDate(7)">After 1 week</button>
+  </div>
+
+  <mat-calendar [selected]="selectedDateControl.value" (selectedChange)="onDateChange($event)" [dateClass]="dateClass"
+    [minDate]="minDate">
+  </mat-calendar>
+
+  <div class="footer">
+    <div class="selected-date">
+      <mat-icon>calendar_today</mat-icon>
+      <h5 class="date_text">{{ selectedDateControl.value ? (selectedDateControl.value | date: 'd MMM y') : 'No Date' }}</h5>
+    </div>
+    <div class="buttons">
+      <button mat-button (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="saveDate()">Save</button>
+    </div>
+  </div>
+</div>

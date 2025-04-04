@@ -1,0 +1,147 @@
+.text-blue {
+    background-color: rgb(83, 171, 248);
+    color: whitesmoke;
+    height: 52px;
+}
+
+h5 {
+    margin: 0px;
+    padding-top: 16px;
+    font-size: 16px;
+    font-family: ui-monospace;
+    padding-left: 12px;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.input_div {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .input_div {
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+    }
+}
+
+
+button.text1 {
+    background: rgb(157, 225, 247);
+    border: none;
+    color: rgb(83, 171, 248);
+    ;
+    height: 38px;
+    width: 76px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+button.text2 {
+    background: rgb(83, 171, 248);
+    border: none;
+    color: white;
+    height: 38px;
+    width: 76px;
+    border-radius: 4px;
+}
+
+.employee_form_input input,
+select {
+    width: 100%;
+    padding: 10px 30px;
+    border: 2px solid #eceef2;
+}
+
+
+.employee_icon {
+    left: 11px;
+    top: 40%;
+    color: rgb(83, 171, 248);
+}
+
+.date_icon {
+    color: rgb(83, 171, 248);
+    margin: -6px;
+    bottom: 4px;
+}
+
+
+.bottom_height {
+    height: 33rem;
+    display: flex;
+    align-items: end;
+    gap: 20px;
+}
+
+
+.add-emp-buttons {
+    height: min-content !important;
+}
+
+.add-emp-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+@media (max-width: 1440px) {
+    .bottom_height {
+        height: 39rem;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .bottom_height {
+        height: 37rem;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+    select {
+        margin-top: 20px !important;
+
+    }
+
+    .employee_icon_select {
+        top: 57%;
+        color: rgb(83, 171, 248);
+    }
+
+    .arrow_margin_mobile {
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .display_mobile_none {
+        flex-direction: row !important;
+    }
+}

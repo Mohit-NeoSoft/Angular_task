@@ -1,0 +1,105 @@
+<main>
+    <section class="employee_details">
+        <div class="container-fluid p-0">
+            <div style="background-color:  rgb(83, 171, 248);">
+                <div class="container ">
+                    <div claSS="employee_heading ">
+                        <h2 class="text-capitalize py-2 text-white" style=" font-size: 16px;
+                        font-family: ui-monospace;">Edit employee details</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <form class="employee_form_input" [formGroup]="addEmpForm">
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="name_field position-relative">
+                                <i class="fa fa-cog position-absolute employee_icon" aria-hidden="true"></i><input
+                                    type="text" placeholder="Employee name" formControlName="empName">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="select_field position-relative">
+                                <i class="fa fa-cog position-absolute employee_icon employee_icon_select"
+                                    aria-hidden="true"></i><select formControlName="empRole">
+                                    <option value="" disabled selected hidden>Select role</option>
+                                    <option value="Product Designer">Product Designer</option>
+                                    <option value="Flutter Developer">Flutter Developer</option>
+                                    <option value="QA Tester">QA Tester</option>
+                                    <option value="Product Owner">Product Owner</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-4 display_mobile_none">
+                        <div class="col-lg-5 col-md-5 col-5">
+                            <div class="position-relative">
+                                <mat-datepicker-toggle matIconSuffix [for]="datepicker"
+                                    class="position-absolute date_icon"></mat-datepicker-toggle>
+                                <mat-datepicker #datepicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button matDatepickerCancel style="  background: rgb(157, 225, 247);
+                                        border: none;
+                                        color: rgb(83, 171, 248);">Cancel</button>
+                                        <button mat-raised-button
+                                            style="background-color:rgb(83, 171, 248); color: white;"
+                                            matDatepickerApply>Apply</button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                                <input [matDatepicker]="datepicker" (click)="datepicker.open()" placeholder="Today"
+                                    formControlName="empstartDate" width="300px " style="outline: none;">
+
+                            </div>
+                        </div>
+
+                        <div
+                            class="col-lg-2 col-md-2 col-2 text-center d-flex justify-content-center align-items-center">
+
+                            <i class="fa fa-arrow-right" aria-hidden="true" style="color: rgb(83, 171, 248);;"></i>
+
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 col-5">
+                            <div class="position-relative">
+                                <mat-datepicker-toggle matIconSuffix [for]="resultPicker"
+                                    class="position-absolute date_icon"></mat-datepicker-toggle>
+                                <mat-datepicker #resultPicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button matDatepickerCancel style="  background: rgb(157, 225, 247);
+                                        border: none;
+                                        color: rgb(83, 171, 248);">Cancel</button>
+                                        <button mat-raised-button
+                                            style="background-color:rgb(83, 171, 248); color: white;"
+                                            matDatepickerApply>Apply</button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                                <input [matDatepicker]="resultPicker" (click)="resultPicker.open()"
+                                    placeholder="No Date" width="300px" style="outline: none;"
+                                    formControlName="empendDate">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="add-emp-footer">
+        <hr class="hr-line">
+        <div class="bottom_height add-emp-buttons">
+            <div class="container">
+
+                <div class="d-flex gap-2 justify-content-end">
+
+                    <div class="cncbtn"><a><button class="text1">Cancel</button></a></div>
+                    <div class="savebtn"><a><button class="text2" type="submit">save</button></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
